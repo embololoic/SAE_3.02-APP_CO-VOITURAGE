@@ -3,15 +3,15 @@ class InscriptionController:
     def __init__(self, model, view):
         self.model = model
         self.view = view
-        self.view.controller = self  # Assigne le contrôleur à la vue
+        self.view.controller = self  # Lien avec la vue
 
-    def create_account(self):
-        # Récupération des données depuis la vue
+    def handle_submit(self):
+        # Récupérer les données de la vue
         user_data = {
             "nom": self.view.nom.text(),
             "prenom": self.view.prenom.text(),
             "login": self.view.login.text(),
-            "password": self.view.password.text(),  # A hacher avant envoi
+            "password": self.view.password.text(),  # À hacher avant envoi au serveur
             "adresse": self.view.adresse.text(),
             "telephone": self.view.telephone.text(),
             "edt": self.view.edt.text(),
@@ -19,5 +19,11 @@ class InscriptionController:
             "cv_fiscaux": self.view.cv_fiscaux.text(),
             "indisponibilites": self.view.indisponibilites.text(),
         }
-        # Ici, on appellerait le serveur pour enregistrer l'utilisateur
-        # Exemple de connexion serveur non incluse ici pour simplification
+
+        # Appeler le modèle pour enregistrer l'utilisateur
+        self.model.create_user(user_data)
+
+    def handle_cancel(self):
+        # Réinitialiser ou fermer la fenêtre
+        self.view.close()
+
