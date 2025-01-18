@@ -21,25 +21,43 @@ Une application graphique client/serveur de co-voiturage développée en Python 
 ```
 App-Covoiturage/
 ├── client/
+│   ├── __init__.py
+│   ├── main_client.py          # Point d'entrée pour l'application cliente
 │   ├── controllers/
-│   │   ├── login_controller.py
-│   │   └── register_controller.py
-│   ├── main_client.py
+│   │   ├── __init__.py
+│   │   ├── login_controller.py # Contrôleur pour la connexion
+│   │   ├── register_controller.py # Contrôleur pour l'inscription
 │   ├── utils/
-│   │   └── protocole.py
-│   └── vues/
-│       ├── bienvenue_vue.py
-│       ├── dashboard_vue.py
-│       ├── login_vue.py
-│       └── register_vue.py
+│   │   ├── __init__.py
+│   │   ├── protocole.py        # Protocole pour envoyer des requêtes au serveur
+│   │   ├── example.ics         # Exemple de fichier iCalendar
+│   ├── vues/
+│   │   ├── __init__.py
+│   │   ├── bienvenue_vue.py    # Vue pour la page de bienvenue
+│   │   ├── login_vue.py        # Vue pour la page de connexion
+│   │   ├── register_vue.py     # Vue pour la page d'inscription
+│   │   ├── dashboard_vue.py    # Vue pour le tableau de bord
 ├── server/
+│   ├── __init__.py
+│   ├── main_server.py          # Point d'entrée pour le serveur
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   ├── protocole.py        # Protocole pour gérer les connexions client
+│   │   ├── database.sql        # Script de création de la base de données
 │   ├── controllers/
-│   │   ├── trajet_controller.py
-│   │   ��── user_controller.py
-│   └── utils/
-│       └── protocole.py
-└── cov_application/
-    └── modele/
-        ├── utilisateur.py
-        └── validation.py
+│   │   ├── __init__.py
+│   │   ├── trajet_controller.py # Contrôleur pour les trajets
+│   │   ├── user_controller.py  # Contrôleur pour les utilisateurs
+│   ├── models/
+│   │   ├── __init__.py
+│   │   ├── trajet.py           # Modèle pour les trajets
+│   │   ├── user.py             # Modèle pour les utilisateurs
+├── tests/
+│   ├── __init__.py
+│   ├── test_client.py          # Tests pour les fonctionnalités du client
+│   ├── test_server.py          # Tests pour les fonctionnalités du serveur
+│   ├── test_protocole.py       # Tests pour le protocole de communication
+├── requirements.txt            # Liste des dépendances Python (PyQt5, MySQLdb, etc.)
+├── README.md                   # Documentation générale du projet
+
 ```
