@@ -19,29 +19,27 @@ Une application graphique client/serveur de co-voiturage développée en Python 
 
 ## Arborecence de l'application de Co-voiturage
 ```
-cov-application/
-│
+App-Covoiturage/
 ├── client/
-│   ├── controllers/       # Gère la logique des actions utilisateur
-│   ├── models/            # Modèle - Gestion des données et règles métier
-│   ├── views/             # Vue - Interfaces graphiques en PyQt
-│   ├── utils/             # Fonctions utilitaires
-│   ├── app_covoiturage-client.py            # Point d'entrée du client
-│
+│   ├── controllers/
+│   │   ├── login_controller.py
+│   │   └── register_controller.py
+│   ├── main_client.py
+│   ├── utils/
+│   │   └── protocole.py
+│   └── vues/
+│       ├── bienvenue_vue.py
+│       ├── dashboard_vue.py
+│       ├── login_vue.py
+│       └── register_vue.py
 ├── server/
-│   ├── controllers/       # Gère les requêtes clients et l'authentification
-│   ├── models/            # Modèle - Gestion des données serveur
-│   ├── app_covoiturage-server.py            # Point d'entrée du serveur
-│
-├── database/
-│   ├── schema.sql         # Schéma de la base de données
-│   ├── initialize.py      # Script d'initialisation de la base de données
-│
-├── tests/                 # Répertoire pour les tests unitaires
-│
-├── docs/                  # Documentation du projet
-│
-├── README.rst             # Description du projet
-├── requirements.txt       # Dépendances du projet
-└── .git/                  # Dépôt Git pour le versionnement
+│   ├── controllers/
+│   │   ├── trajet_controller.py
+│   │   ��── user_controller.py
+│   └── utils/
+│       └── protocole.py
+└── cov_application/
+    └── modele/
+        ├── utilisateur.py
+        └── validation.py
 ```
