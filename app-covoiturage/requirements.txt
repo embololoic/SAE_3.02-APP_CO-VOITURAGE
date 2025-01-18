@@ -1,0 +1,63 @@
+app-covoiturage/
+├── client/
+│   ├── vues/
+│   │   ├── login_vue.py
+│   │   ├── register_vue.py
+│   │   ├── dashboard.py
+│   │   ├── trajet_vue.py
+│   │   └── admin_vue.py
+│   ├── controllers/
+│   │   ├── login_controller.py
+│   │   ├── register_controller.py
+│   │   └── dashboard_controller.py
+│   ├── utils/
+│   │   └── protocole.py
+│   ├── assets/
+│   │   ├── images/
+│   │   │   └── logo.png
+│   │   └── styles/
+│   │       └── main.css
+│   ├── main_client.py
+├── server/
+│   ├── models/
+│   │   ├── user.py
+│   │   ├── trajet.py
+│   ├── controllers/
+│   │   ├── user_controller.py
+│   │   ├── trajet_controller.py
+│   ├── utils/
+│   │   └── database.py
+│   ├── main_server.py
+├── shared/
+│   ├── constants.py
+│   ├── utils.py
+├── config/
+│   ├── server_config.py
+│   ├── client_config.py
+│   └── constants.py
+├── tests/
+│   ├── test_client/
+│   ├── test_server/
+│   └── test_shared/
+├── requirements.txt             # Liste des dépendances Python
+└── README.md
+
+
+# Framework pour l'interface graphique
+PyQt5==5.15.7
+
+# Communication réseau (si sockets ou requêtes HTTP)
+requests==2.28.2
+
+# Base de données (SQLite par défaut)
+sqlite3-binary==3.39.4
+
+# Sécurité et chiffrement (pour hasher les mots de passe)
+bcrypt==4.0.1
+
+# Autres outils utiles
+Flask==2.2.3            # Framework web léger pour le serveur
+SQLAlchemy==2.0.7       # ORM pour gérer les bases de données
+pytest==7.3.1           # Pour les tests unitaires
+
+MySQL-python==1.2.5      # Si vous utilisez MySQL

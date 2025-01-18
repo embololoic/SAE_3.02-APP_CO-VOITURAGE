@@ -1,0 +1,4 @@
+{
+  "test_trajet_controller.py::TestTrajetController::test_add_trajet_missing_field": true,
+  "test_trajet_controller.py::TestTrajetController::test_add_trajet_failure": true
+}

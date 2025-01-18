@@ -1,0 +1,23 @@
+[
+  "test_database.py::test_creation_tables",
+  "test_model_server.py::TestModels::test_create_trajet",
+  "test_model_server.py::TestModels::test_create_user",
+  "test_model_server.py::TestModels::test_search_trajet",
+  "test_trajet_controller.py::TestTrajetController::test_add_trajet",
+  "test_trajet_controller.py::TestTrajetController::test_add_trajet_failure",
+  "test_trajet_controller.py::TestTrajetController::test_add_trajet_missing_field",
+  "test_trajet_controller.py::TestTrajetController::test_add_trajet_success",
+  "test_trajet_controller.py::TestTrajetController::test_delete_trajet",
+  "test_trajet_controller.py::TestTrajetController::test_delete_trajet_failure",
+  "test_trajet_controller.py::TestTrajetController::test_delete_trajet_success",
+  "test_trajet_controller.py::TestTrajetController::test_list_trajets",
+  "test_trajet_controller.py::TestTrajetController::test_list_trajets_success",
+  "test_trajet_controller.py::TestTrajetController::test_search_trajets",
+  "test_trajet_controller.py::TestTrajetController::test_search_trajets_success",
+  "test_user_controller.py::TestUserController::test_get_user_not_found",
+  "test_user_controller.py::TestUserController::test_get_user_success",
+  "test_user_controller.py::TestUserController::test_login_user_success",
+  "test_user_controller.py::TestUserController::test_login_user_wrong_password",
+  "test_user_controller.py::TestUserController::test_register_user_missing_field",
+  "test_user_controller.py::TestUserController::test_register_user_success"
+]
