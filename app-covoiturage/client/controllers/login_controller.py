@@ -14,6 +14,18 @@ class LoginController(QObject):
         self.view.btn_login.clicked.connect(self.login_utilisateur)
 
     def login_utilisateur(self):
+        """
+        Handles the user login process.
+
+        Collects the email and password from the view, sends a login request to the server,
+        and processes the server's response.
+
+        Parameters:
+        None
+
+        Returns:
+        None
+        """
         data = {
             "email": self.view.input_email.text(),
             "password": self.view.input_password.text()
