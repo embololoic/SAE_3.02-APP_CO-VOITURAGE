@@ -1,0 +1,473 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>server &#8212; SAE3.02-App-Covoiturage 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="shared" href="shared.html" />
+    <link rel="prev" title="client" href="client.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-server.controllers.trajet_controller">
+<span id="server"></span><h1>server<a class="headerlink" href="#module-server.controllers.trajet_controller" title="Permalink to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="server.controllers.trajet_controller.add_trajet">
+<span class="sig-prename descclassname"><span class="pre">server.controllers.trajet_controller.</span></span><span class="sig-name descname"><span class="pre">add_trajet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#server.controllers.trajet_controller.add_trajet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles the addition of a new trip.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – Trip data, including:
+- conducteur_id (driver’s ID)
+- depart (departure location)
+- arrivee (arrival location)
+- date_heure (date and time)
+- prix (price)
+- places_disponibles (available seats)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A response indicating the success or failure of the operation.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="server.controllers.trajet_controller.delete_trajet">
+<span class="sig-prename descclassname"><span class="pre">server.controllers.trajet_controller.</span></span><span class="sig-name descname"><span class="pre">delete_trajet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trajet_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#server.controllers.trajet_controller.delete_trajet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a trip by its ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>trajet_id</strong> (<em>int</em>) – The ID of the trip to be deleted.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A response indicating the success or failure of the operation.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="server.controllers.trajet_controller.list_trajets">
+<span class="sig-prename descclassname"><span class="pre">server.controllers.trajet_controller.</span></span><span class="sig-name descname"><span class="pre">list_trajets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#server.controllers.trajet_controller.list_trajets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves all available trips.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A response containing the list of trips or an error.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="server.controllers.trajet_controller.search_trajets">
+<span class="sig-prename descclassname"><span class="pre">server.controllers.trajet_controller.</span></span><span class="sig-name descname"><span class="pre">search_trajets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#server.controllers.trajet_controller.search_trajets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Searches for trips based on specific criteria.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filters</strong> (<em>dict</em>) – Search criteria, including:
+- depart (optional)
+- arrivee (optional)
+- date_heure (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A response containing matching trips or an error.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-server.controllers.user_controller"></span><dl class="py class">
+<dt class="sig sig-object py" id="server.controllers.user_controller.UserController">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">server.controllers.user_controller.</span></span><span class="sig-name descname"><span class="pre">UserController</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#server.controllers.user_controller.UserController" title="Permalink to this definition">¶</a></dt>
+<dd><p>Controller for managing user-related actions.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="server.controllers.user_controller.UserController.get_user">
+<span class="sig-name descname"><span class="pre">get_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#server.controllers.user_controller.UserController.get_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves details of a specific user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>user_id</strong> (<em>int</em>) – The ID of the user.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A response containing user information or an error.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="server.controllers.user_controller.UserController.login_user">
+<span class="sig-name descname"><span class="pre">login_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#server.controllers.user_controller.UserController.login_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles user login.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – Login credentials, including:
+- email
+- mot_de_passe (password)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A response indicating the success or failure of the operation.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="server.controllers.user_controller.UserController.register_user">
+<span class="sig-name descname"><span class="pre">register_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#server.controllers.user_controller.UserController.register_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles user registration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – User data, including:
+- nom (last name)
+- prenom (first name)
+- email
+- mot_de_passe (password)
+- adresse (address)
+- coordonnees_gps (GPS coordinates)
+- places_voiture (number of car seats)
+- cv_fiscaux (number of tax documents)
+- indisponibilites (unavailability dates)
+- emploi_du_temps (schedule)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A response indicating the success or failure of the operation.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-server.models.trajet"></span><dl class="py class">
+<dt class="sig sig-object py" id="server.models.trajet.TrajetModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">server.models.trajet.</span></span><span class="sig-name descname"><span class="pre">TrajetModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#server.models.trajet.TrajetModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to manage trips in the database.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="server.models.trajet.TrajetModel.create_trajet">
+<span class="sig-name descname"><span class="pre">create_trajet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trajet_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#server.models.trajet.TrajetModel.create_trajet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new trip in the database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>trajet_data</strong> (<em>dict</em>) – Data for the new trip, including:
+- conducteur_id: ID of the driver.
+- depart: Departure location.
+- arrivee: Arrival location.
+- date_heure: Date and time of departure.
+- prix: Price of the trip.
+- places_disponibles: Available seats.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>ID of the newly created trip.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="server.models.trajet.TrajetModel.delete_trajet">
+<span class="sig-name descname"><span class="pre">delete_trajet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trajet_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#server.models.trajet.TrajetModel.delete_trajet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a trip by its ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>trajet_id</strong> (<em>int</em>) – The ID of the trip to delete.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the deletion was successful, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="server.models.trajet.TrajetModel.get_all_trajets">
+<span class="sig-name descname"><span class="pre">get_all_trajets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#server.models.trajet.TrajetModel.get_all_trajets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves all trips from the database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>List of trips, each containing:</dt><dd><ul class="simple">
+<li><p>trajet_id (int): Trip ID.</p></li>
+<li><p>conducteur_id (int): Driver ID.</p></li>
+<li><p>depart (str): Departure address.</p></li>
+<li><p>arrivee (str): Arrival address.</p></li>
+<li><p>date_heure (str): Departure date and time.</p></li>
+<li><p>prix (float): Ticket price.</p></li>
+<li><p>places_disponibles (int): Number of available seats.</p></li>
+<li><p>etat (str): Trip status (e.g., “en attente”, “en cours”, “terminé”).</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[dict]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="server.models.trajet.TrajetModel.search_trajets">
+<span class="sig-name descname"><span class="pre">search_trajets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#server.models.trajet.TrajetModel.search_trajets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Searches for trips based on certain filters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filters</strong> (<em>dict</em>) – Search criteria, including:
+- depart: Departure location.
+- arrivee: Arrival location.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of matching trips.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[dict]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-server.models.user"></span><dl class="py class">
+<dt class="sig sig-object py" id="server.models.user.UserModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">server.models.user.</span></span><span class="sig-name descname"><span class="pre">UserModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#server.models.user.UserModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Model for managing users in the database.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="server.models.user.UserModel.create_user">
+<span class="sig-name descname"><span class="pre">create_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#server.models.user.UserModel.create_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a user to the database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>user_data</strong> (<em>dict</em>) – User data including:
+- nom: Last name.
+- prenom: First name.
+- email: Email address.
+- mot_de_passe: Password.
+-addresse: Address.
+-coordonnees_gps: GPS coordinates.
+-places_voiture: Number of car seats.
+- cv_fiscaux: Number of tax documents.
+- indisponibilite: Days of unavailability.
+- emploi_du_temps: Schedule.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The ID of the added user.
+False: If an error occurs during insertion.
+None: If no user is added.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="server.models.user.UserModel.delete_user">
+<span class="sig-name descname"><span class="pre">delete_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#server.models.user.UserModel.delete_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a user by their ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>user_id</strong> (<em>int</em>) – The ID of the user to delete.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the deletion is successful, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="server.models.user.UserModel.get_user_by_email">
+<span class="sig-name descname"><span class="pre">get_user_by_email</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">email</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#server.models.user.UserModel.get_user_by_email" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves a user by their email address.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>email</strong> (<em>str</em>) – The user’s email address.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>User data if found, None otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="server.models.user.UserModel.get_user_by_id">
+<span class="sig-name descname"><span class="pre">get_user_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#server.models.user.UserModel.get_user_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves a user by their ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>user_id</strong> (<em>int</em>) – The user’s ID.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>User data if found, None otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="server.models.user.UserModel.update_user">
+<span class="sig-name descname"><span class="pre">update_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#server.models.user.UserModel.update_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates an existing user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>user_id</strong> (<em>int</em>) – The ID of the user to update.</p></li>
+<li><p><strong>data</strong> (<em>dict</em>) – A dictionary containing the fields to update.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the update is successful, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-server.utils.database"></span><dl class="py class">
+<dt class="sig sig-object py" id="server.utils.database.BaseDonnees">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">server.utils.database.</span></span><span class="sig-name descname"><span class="pre">BaseDonnees</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'192.168.156.221'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rsissako'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Fatou7151&#64;'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">database</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'covoiturage'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#server.utils.database.BaseDonnees" title="Permalink to this definition">¶</a></dt>
+<dd><p>Classe pour gérer la connexion à la base de données MySQL et effectuer des opérations telles que
+la création de tables, la suppression conditionnelle des tables existantes, et la fermeture de connexion.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="server.utils.database.BaseDonnees.fermer_connexion">
+<span class="sig-name descname"><span class="pre">fermer_connexion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#server.utils.database.BaseDonnees.fermer_connexion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ferme la connexion à la base de données MySQL.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">SAE3.02-App-Covoiturage</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">app-covoiturage</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="client.html">client</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shared.html">shared</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html">tests</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">app-covoiturage</a><ul>
+      <li>Previous: <a href="client.html" title="previous chapter">client</a></li>
+      <li>Next: <a href="shared.html" title="next chapter">shared</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2025, Alexandra BONKOUNGOU, Loic EMBOLO, Rokia SISSAKO, Milan TODOROVIC.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/server.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

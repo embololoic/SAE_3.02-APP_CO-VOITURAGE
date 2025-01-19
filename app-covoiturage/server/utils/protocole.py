@@ -41,7 +41,7 @@ def handle_client(client_socket, user_controller):
     finally:
         client_socket.close()
 
-def start_server(host="127.0.0.1", port=12345):
+def start_server(host="172.17.21.21", port=12345):
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     l_onoff = 1
@@ -53,7 +53,7 @@ def start_server(host="127.0.0.1", port=12345):
     print(f"Serveur à l'écoute sur {host}:{port}")
 
     try:
-        db_connection = MySQLdb.connect(user='root', passwd='', db='covoiturage', host='localhost')
+        db_connection = MySQLdb.connect(user='rsissako', passwd='Fatou7151@', db='rsissako1', host='192.168.156.221')
         user_controller = UserController(db_connection)
         print("Connexion à la base de données réussie.")
     except MySQLdb.Error as e:
