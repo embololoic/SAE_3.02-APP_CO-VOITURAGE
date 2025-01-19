@@ -1,5 +1,6 @@
 import sys
-
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLabel, QLineEdit, QPushButton, QSpinBox, QCheckBox, QHBoxLayout, QFileDialog, QMessageBox
 from client.controllers.register_controller import RegisterController
 
