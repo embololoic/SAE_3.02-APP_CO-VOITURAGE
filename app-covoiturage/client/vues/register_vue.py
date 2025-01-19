@@ -48,7 +48,7 @@ class PageRegister(QWidget):
         self.input_adresse.setPlaceholderText("Entrez votre adresse")
         layout.addWidget(self.input_adresse)
 
-        self.label_gps = QLabel("Coordonnées GPS (facultatif) :")
+        self.label_gps = QLabel("Coordonnées GPS :")
         layout.addWidget(self.label_gps)
         self.input_gps = QLineEdit()
         self.input_gps.setPlaceholderText("Entrez vos coordonnées GPS")

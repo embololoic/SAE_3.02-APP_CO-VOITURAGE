@@ -1,3 +1,5 @@
+from PyQt5.QtWidgets import QApplication
+
 class DashboardController:
     def __init__(self, dashboard_view, show_view_callback):
         """
@@ -29,5 +31,7 @@ class DashboardController:
     def deconnexion(self):
         """
         Méthode déclenchée lors du clic sur "Se déconnecter".
+        Ferme l'application complètement.
         """
-        self.show_view_callback("deconnexion")
+        print("Déconnexion demandée. Fermeture de l'application.")
+        QApplication.quit()  # Ferme l'application proprement

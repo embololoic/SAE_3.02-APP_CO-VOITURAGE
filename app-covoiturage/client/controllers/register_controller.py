@@ -1,6 +1,7 @@
 import sys
 import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..','..')))
+from PyQt5.QtCore import pyqtSignal, QObject
 from PyQt5.QtWidgets import QMessageBox
 from client.utils.protocole import send_request
 
@@ -8,55 +9,74 @@ from client.utils.protocole import send_request
 class RegisterController:
     def __init__(self, view, show_dashboard_callback):
         self.view = view
-        self.is_processing = False  # Indicateur de requête en cours
+        self.is_processing = False
         self.show_dashboard_callback = show_dashboard_callback
+        # Connexion sécurisée du signal
+        if self.view.btn_inscription.receivers(self.view.btn_inscription.clicked) > 0:
+            self.view.btn_inscription.clicked.disconnect()
         self.view.btn_inscription.clicked.connect(self.inscrire_utilisateur)
 
     def inscrire_utilisateur(self):
         if self.is_processing:
-            print("Une requête est déjà en cours. Veuillez patienter.")
+            print("Requête déjà en cours. Ignorée.")
             return
 
-        print("Tentative d'inscription déclenchée")
+        print("Tentative d'inscription déclenchée - Début")
         self.is_processing = True
         self.view.btn_inscription.setEnabled(False)
 
-        data = {
-            "nom": self.view.input_nom.text(),
-            "prenom": self.view.input_prenom.text(),
-            "email": self.view.input_email.text(),
-            "mot_de_passe": self.view.input_password.text(),
-            "adresse": self.view.input_adresse.text(),
-            "coordonnees_gps": self.view.input_gps.text(),
-            "places_voiture": self.view.input_places.value(),
-            "cv_fiscaux": self.view.input_cv.value(),
-            "indisponibilites": self.get_indisponibilite(),
-            "emploi_du_temps": self.view.label_calendar.text()
-        }
+        try:
+            data = {
+                "nom": self.view.input_nom.text(),
+                "prenom": self.view.input_prenom.text(),
+                "email": self.view.input_email.text(),
+                "mot_de_passe": self.view.input_password.text(),
+                "adresse": self.view.input_adresse.text(),
+                "coordonnees_gps": self.view.input_gps.text(),
+                "places_voiture": self.view.input_places.value(),
+                "cv_fiscaux": self.view.input_cv.value(),
+                "indisponibilites": self.get_indisponibilite(),
+                "emploi_du_temps": self.view.label_calendar.text()
+            }
 
-        if self.validate_data(data):
-            response = send_request("register", data)
-            if response:
-                if response.get("status") == "success":
-                    QMessageBox.information(self.view, "Succès", "Inscription réussie!")
-                    self.reset_form()
-                    self.show_dashboard_callback()  # Redirection vers le tableau de bord
-                elif response.get("message") == "Cet email est déjà utilisé.":
-                    QMessageBox.critical(self.view, "Erreur", "Cet email est déjà utilisé. Veuillez en choisir un autre.")
+            print("Données collectées :", data)
+
+            if self.validate_data(data):
+                print("Validation des données réussie")
+                response = send_request("register", data)
+
+                print("Réponse reçue :", response)
+                if response:
+                    if response.get("status") == "success":
+                        print("Inscription réussie")
+                        QMessageBox.information(self.view, "Succès", "Inscription réussie!")
+                        self.reset_form()
+                        self.view.btn_inscription.setEnabled(True)  # Réactiver le bouton après succès
+                        self.show_dashboard_callback()
+                    elif response.get("message") == "Cet email est déjà utilisé.":
+                        print("Erreur : Email déjà utilisé")
+                        QMessageBox.critical(self.view, "Erreur", "Cet email est déjà utilisé. Veuillez en choisir un autre.")
+                    else:
+                        print("Erreur inconnue :", response.get("message", "Erreur inconnue"))
+                        QMessageBox.critical(self.view, "Erreur", response.get("message", "Erreur inconnue."))
                 else:
-                    QMessageBox.critical(self.view, "Erreur", response.get("message", "Erreur inconnue."))
+                    print("Erreur : Pas de réponse du serveur")
+                    QMessageBox.critical(self.view, "Erreur", "Erreur lors de la communication avec le serveur.")
             else:
-                QMessageBox.critical(self.view, "Erreur", "Erreur lors de la communication avec le serveur.")
-        else:
-            QMessageBox.critical(self.view, "Erreur", "Veuillez remplir tous les champs obligatoires.")
-
-        self.is_processing = False
-        self.view.btn_inscription.setEnabled(True)
+                print("Validation échouée : Champs obligatoires manquants")
+                QMessageBox.critical(self.view, "Erreur", "Veuillez remplir tous les champs obligatoires.")
+        except Exception as e:
+            print("Erreur inattendue :", e)
+        finally:
+            print("Fin du traitement d'inscription")
+            self.is_processing = False
+            self.view.btn_inscription.setEnabled(True)
 
     def validate_data(self, data):
         required_fields = ["nom", "prenom", "email", "mot_de_passe"]
         for field in required_fields:
             if not data[field]:
+                print(f"Champ manquant : {field}")
                 return False
         return True
 
@@ -79,6 +99,7 @@ class RegisterController:
         return ", ".join(jours)
 
     def reset_form(self):
+        print("Réinitialisation du formulaire")
         self.view.input_nom.clear()
         self.view.input_prenom.clear()
         self.view.input_email.clear()

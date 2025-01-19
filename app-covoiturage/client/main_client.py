@@ -19,39 +19,48 @@ def main():
     # Création des vues
     bienvenue_view = PageBienvenue()
     login_view = PageLogin()
+    register_view = PageRegister(lambda: show_dashboard())
     dashboard_view = Dashboard()
     ajouter_trajet_view = AjouterTrajetView()
     voir_trajets_view = VoirTrajetsView()
 
-    # Navigation entre les vues
+    # Méthode pour cacher toutes les fenêtres
+    def hide_all_views():
+        bienvenue_view.hide()
+        login_view.hide()
+        register_view.hide()
+        dashboard_view.hide()
+        ajouter_trajet_view.hide()
+        voir_trajets_view.hide()
+
+    # Fonctions pour la navigation entre les vues
+    def show_bienvenue():
+        hide_all_views()  # Cache toutes les fenêtres
+        bienvenue_view.show()
+
     def show_login():
-        bienvenue_view.close()
+        hide_all_views()
         login_view.show()
 
     def show_register():
-        bienvenue_view.close()
+        hide_all_views()
         register_view.show()
 
     def show_dashboard():
-        login_view.close()
-        ajouter_trajet_view.close()
-        voir_trajets_view.close()
+        hide_all_views()
         dashboard_view.show()
 
     def show_ajouter_trajet():
-        dashboard_view.close()
+        hide_all_views()
         ajouter_trajet_view.show()
 
     def show_voir_trajets():
-        dashboard_view.close()
+        hide_all_views()
         voir_trajets_view.show()
 
     def logout():
-        dashboard_view.close()
+        hide_all_views()
         bienvenue_view.show()
-
-    # Instanciation de la vue Register avec la fonction de callback
-    register_view = PageRegister(show_dashboard)
 
     # Création des contrôleurs
     login_controller = LoginController(login_view)
@@ -72,7 +81,8 @@ def main():
     voir_trajets_view.back_button.clicked.connect(show_dashboard)
 
     # Affichage initial
-    bienvenue_view.show()
+    show_bienvenue()
+    QApplication.quit()
 
     sys.exit(app.exec_())
 
