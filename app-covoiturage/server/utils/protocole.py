@@ -41,7 +41,7 @@ def handle_client(client_socket, user_controller):
     finally:
         client_socket.close()
 
-def start_server(host="172.17.21.21", port=12345):
+def start_server(host="172.17.5.21", port=12345):
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     l_onoff = 1
