@@ -2,6 +2,19 @@ from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLabel, QLineEdit, QPushButton
 
 class AjouterTrajetView(QWidget):
     def __init__(self):
+        """
+        Initializes the AjouterTrajetView.
+
+        Sets up the window title, geometry, and layout. Adds labels and input fields
+        for departure location, destination location, and trip date. Also adds a button
+        to submit the new trip.
+
+        Parameters:
+        None
+
+        Returns:
+        None
+        """
         super().__init__()
         self.setWindowTitle("Ajouter un trajet")
         self.setGeometry(100, 100, 600, 400)

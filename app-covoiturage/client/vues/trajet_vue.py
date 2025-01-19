@@ -7,6 +7,19 @@ from PyQt5.QtCore import QDateTime
 
 class TrajetView(QWidget):
     def __init__(self):
+        """
+        Initializes the TrajetView.
+
+        Sets up the window title, geometry, and layout. Adds labels and input fields
+        for departure location, arrival location, date and time, price, and available seats.
+        Also adds a button to submit the new trip.
+
+        Parameters:
+        None
+
+        Returns:
+        None
+        """
         super().__init__()
         self.setWindowTitle("Ajouter un trajet")
         self.setGeometry(100, 100, 400, 300)

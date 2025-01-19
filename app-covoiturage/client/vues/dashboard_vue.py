@@ -2,6 +2,18 @@ from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLabel, QPushButton
 
 class Dashboard(QWidget):
     def __init__(self):
+        """
+        Initializes the Dashboard.
+
+        Sets up the window title, geometry, and layout. Adds labels for the title and personal statistics,
+        and buttons for viewing available trips, adding a new trip, and logging out.
+
+        Parameters:
+        None
+
+        Returns:
+        None
+        """
         super().__init__()
         self.setWindowTitle("Dashboard")
         self.setGeometry(100, 100, 800, 600)

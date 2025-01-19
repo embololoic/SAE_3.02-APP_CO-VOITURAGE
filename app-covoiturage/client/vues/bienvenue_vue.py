@@ -6,6 +6,18 @@ class PageBienvenue(QWidget):
     register_requested = pyqtSignal()
 
     def __init__(self):
+        """
+        Initializes the PageBienvenue.
+
+        Sets up the window title, geometry, and layout. Adds buttons for login and registration,
+        and connects them to their respective signals.
+
+        Parameters:
+        None
+
+        Returns:
+        None
+        """
         super().__init__()
         self.setWindowTitle("Bienvenue")
         self.setGeometry(100, 100, 300, 200)

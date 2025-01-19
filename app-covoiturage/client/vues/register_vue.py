@@ -7,11 +7,35 @@ from client.controllers.register_controller import RegisterController
 
 class PageRegister(QWidget):
     def __init__(self, show_dashboard_callback):
+        """
+        Initializes the PageRegister.
+
+        Calls the setup_ui method to set up the window title, geometry, and layout. Adds labels and input fields
+        for name, surname, email, password, and other registration details. Also adds a button to submit the registration information.
+
+        Parameters:
+        show_dashboard_callback (function): Callback function to show the dashboard after successful registration.
+
+        Returns:
+        None
+        """
         super().__init__()
         self.setup_ui()
         self.controller = RegisterController(self, show_dashboard_callback)
 
     def setup_ui(self):
+        """
+        Sets up the user interface for the registration page.
+
+        Configures the window title, geometry, and layout. Adds labels and input fields
+        for name, surname, email, password, and other registration details. Also adds a button to submit the registration information.
+
+        Parameters:
+        None
+
+        Returns:
+        None
+        """
         self.setWindowTitle("Inscription - Application de Covoiturage")
         self.setGeometry(100, 100, 500, 800)
 

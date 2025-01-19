@@ -14,6 +14,18 @@ class TrajetController(QObject):
 
     @pyqtSlot()
     def add_trajet(self):
+        """
+        Handles the addition of a new trip.
+
+        Collects the trip data from the view, creates a TrajetModel instance,
+        and sends the data to the server.
+
+        Parameters:
+        None
+
+        Returns:
+        None
+        """
         # Collect input data
         try:
             trajet = TrajetModel(

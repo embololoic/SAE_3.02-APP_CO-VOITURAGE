@@ -2,10 +2,34 @@ from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLabel, QLineEdit, QPushButton
 
 class PageLogin(QWidget):
     def __init__(self):
+        """
+        Initializes the PageLogin.
+
+        Calls the init_ui method to set up the window title, geometry, and layout. Adds labels and input fields
+        for email and password, and a button to submit the login information.
+
+        Parameters:
+        None
+
+        Returns:
+        None
+        """
         super().__init__()
         self.init_ui()
 
     def init_ui(self):
+        """
+        Sets up the user interface for the login page.
+
+        Configures the window title, geometry, and layout. Adds labels and input fields
+        for email and password, and a button to submit the login information.
+
+        Parameters:
+        None
+
+        Returns:
+        None
+        """
         self.setWindowTitle("Connexion - Application de Covoiturage")
         self.setGeometry(100, 100, 500, 300)
 

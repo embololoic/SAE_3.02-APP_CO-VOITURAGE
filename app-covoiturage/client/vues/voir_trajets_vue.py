@@ -2,6 +2,18 @@ from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLabel, QTableWidget, QTableWi
 
 class VoirTrajetsView(QWidget):
     def __init__(self):
+        """
+        Initializes the VoirTrajetsView.
+
+        Sets up the window title, geometry, and layout. Adds a label for the title,
+        a table to display available trips, and a button to go back.
+
+        Parameters:
+        None
+
+        Returns:
+        None
+        """
         super().__init__()
         self.setWindowTitle("Voir les trajets disponibles")
         self.setGeometry(100, 100, 600, 400)

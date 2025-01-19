@@ -40,12 +40,36 @@
 <span class="target" id="module-client.controllers.dashboard_controller"></span><span class="target" id="module-client.controllers.login_controller"></span><dl class="py class">
 <dt class="sig sig-object py" id="client.controllers.login_controller.LoginController">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">client.controllers.login_controller.</span></span><span class="sig-name descname"><span class="pre">LoginController</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#client.controllers.login_controller.LoginController" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="client.controllers.login_controller.LoginController.login_utilisateur">
+<span class="sig-name descname"><span class="pre">login_utilisateur</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#client.controllers.login_controller.LoginController.login_utilisateur" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles the user login process.</p>
+<p>Collects the email and password from the view, sends a login request to the server,
+and processes the server’s response.</p>
+<p>Parameters:
+None</p>
+<p>Returns:
+None</p>
+</dd></dl>
+
+</dd></dl>
 
 <span class="target" id="module-client.controllers.register_controller"></span><span class="target" id="module-client.controllers.trajet_controlleur"></span><dl class="py class">
 <dt class="sig sig-object py" id="client.controllers.trajet_controlleur.TrajetController">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">client.controllers.trajet_controlleur.</span></span><span class="sig-name descname"><span class="pre">TrajetController</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">view</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#client.controllers.trajet_controlleur.TrajetController" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="client.controllers.trajet_controlleur.TrajetController.add_trajet">
+<span class="sig-name descname"><span class="pre">add_trajet</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#client.controllers.trajet_controlleur.TrajetController.add_trajet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles the addition of a new trip.</p>
+<p>Collects the trip data from the view, creates a TrajetModel instance,
+and sends the data to the server.</p>
+<p>Parameters:
+None</p>
+<p>Returns:
+None</p>
+</dd></dl>
+
+</dd></dl>
 
 <span class="target" id="module-client.models.trajet_model"></span><span class="target" id="module-client.utils.protocole"></span><span class="target" id="module-client.vues.admin_vue"></span><dl class="py class">
 <dt class="sig sig-object py" id="client.vues.admin_vue.AdminVue">
@@ -67,20 +91,39 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">client.vues.dashboard_vue.</span></span><span class="sig-name descname"><span class="pre">Dashboard</span></span><a class="headerlink" href="#client.vues.dashboard_vue.Dashboard" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<span class="target" id="module-client.vues.deconnexion_vue"></span><dl class="py class">
-<dt class="sig sig-object py" id="client.vues.deconnexion_vue.DeconnexionView">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">client.vues.deconnexion_vue.</span></span><span class="sig-name descname"><span class="pre">DeconnexionView</span></span><a class="headerlink" href="#client.vues.deconnexion_vue.DeconnexionView" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 <span class="target" id="module-client.vues.login_vue"></span><dl class="py class">
 <dt class="sig sig-object py" id="client.vues.login_vue.PageLogin">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">client.vues.login_vue.</span></span><span class="sig-name descname"><span class="pre">PageLogin</span></span><a class="headerlink" href="#client.vues.login_vue.PageLogin" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="client.vues.login_vue.PageLogin.init_ui">
+<span class="sig-name descname"><span class="pre">init_ui</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#client.vues.login_vue.PageLogin.init_ui" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets up the user interface for the login page.</p>
+<p>Configures the window title, geometry, and layout. Adds labels and input fields
+for email and password, and a button to submit the login information.</p>
+<p>Parameters:
+None</p>
+<p>Returns:
+None</p>
+</dd></dl>
+
+</dd></dl>
 
 <span class="target" id="module-client.vues.register_vue"></span><dl class="py class">
 <dt class="sig sig-object py" id="client.vues.register_vue.PageRegister">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">client.vues.register_vue.</span></span><span class="sig-name descname"><span class="pre">PageRegister</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">show_dashboard_callback</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#client.vues.register_vue.PageRegister" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="client.vues.register_vue.PageRegister.setup_ui">
+<span class="sig-name descname"><span class="pre">setup_ui</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#client.vues.register_vue.PageRegister.setup_ui" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets up the user interface for the registration page.</p>
+<p>Configures the window title, geometry, and layout. Adds labels and input fields
+for name, surname, email, password, and other registration details. Also adds a button to submit the registration information.</p>
+<p>Parameters:
+None</p>
+<p>Returns:
+None</p>
+</dd></dl>
+
+</dd></dl>
 
 <span class="target" id="module-client.vues.trajet_vue"></span><dl class="py class">
 <dt class="sig sig-object py" id="client.vues.trajet_vue.TrajetView">
