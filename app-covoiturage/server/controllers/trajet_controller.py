@@ -89,7 +89,7 @@ def search_trajets(filters):
         # Gérer les exceptions et retourner une erreur
         return {"status": "error", "message": str(e)}
 
-def delete_trajet(trajet_id):
+def delete_trajet(trajet_id,conn):
     """
     Deletes a trip by its ID.
 
@@ -101,7 +101,7 @@ def delete_trajet(trajet_id):
     """
     try:
         # Suppression du trajet basé sur l'ID
-        trajet_model = TrajetModel()
+        trajet_model = TrajetModel(conn)
         success = trajet_model.delete_trajet(trajet_id)
         if success:
             return {"status": "success", "message": "Trajet supprimé avec succès."}
