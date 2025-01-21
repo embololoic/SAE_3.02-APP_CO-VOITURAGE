@@ -8,6 +8,13 @@ from client.utils.protocole import send_request
 
 class RegisterController:
     def __init__(self, view, show_dashboard_callback):
+        """
+                Initializes the register controller.
+
+                Args:
+                    view: The view associated with the registration process.
+                    show_dashboard_callback: Function to display the dashboard view.
+        """
         self.view = view
         self.is_processing = False
         self.show_dashboard_callback = show_dashboard_callback
@@ -17,6 +24,12 @@ class RegisterController:
         self.view.btn_inscription.clicked.connect(self.inscrire_utilisateur)
 
     def inscrire_utilisateur(self):
+        """
+                Handles the user registration process.
+
+                Collects the user data from the view, sends a registration request to the server,
+                and processes the server's response.
+        """
         if self.is_processing:
             print("Requête déjà en cours. Ignorée.")
             return
@@ -78,6 +91,15 @@ class RegisterController:
             self.view.btn_inscription.setEnabled(True)
 
     def validate_data(self, data):
+        """
+                Validates the collected user data.
+
+                Args:
+                    data: A dictionary containing the user data.
+
+                Returns:
+                    bool: True if all required fields are present, False otherwise.
+        """
         required_fields = ["nom", "prenom", "email", "mot_de_passe"]
         for field in required_fields:
             if not data[field]:
@@ -86,6 +108,12 @@ class RegisterController:
         return True
 
     def get_indisponibilite(self):
+        """
+                Retrieves the user's unavailability days.
+
+                Returns:
+                    str: A comma-separated string of unavailable days.
+        """
         jours = []
         if self.view.check_lundi.isChecked():
             jours.append("Lundi")
@@ -104,6 +132,9 @@ class RegisterController:
         return ", ".join(jours)
 
     def reset_form(self):
+        """
+                Resets the registration form fields.
+        """
         print("Réinitialisation du formulaire")
         self.view.input_nom.clear()
         self.view.input_prenom.clear()

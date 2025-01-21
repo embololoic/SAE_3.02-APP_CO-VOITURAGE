@@ -8,9 +8,15 @@ from client.utils.protocole import send_request
 
 class GererTrajetController(QObject):
     """
-    Contrôleur pour la gestion des trajets.
+    Controller for managing trips.
     """
     def __init__(self, view):
+        """
+                Initializes the trip management controller.
+
+                Args:
+                    view: The view associated with trip management.
+        """
         super().__init__()
         self.view = view
 
@@ -20,7 +26,7 @@ class GererTrajetController(QObject):
 
     def actualiser_trajets(self):
         """
-        Récupère la liste des trajets depuis le serveur.
+        Retrieves the list of trips from the server.
         """
         logging.info("[LOG] Récupération des trajets...")
         response = send_request("list_trajets", {})
@@ -35,7 +41,7 @@ class GererTrajetController(QObject):
 
     def supprimer_trajet(self):
         """
-        Supprime le trajet sélectionné.
+        Deletes the selected trip.
         """
         trajet_id = self.view.get_selected_trajet_id()
         if not trajet_id:

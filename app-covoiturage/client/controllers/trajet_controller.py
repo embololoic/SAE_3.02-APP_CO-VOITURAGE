@@ -11,9 +11,16 @@ logging.basicConfig(level=logging.INFO)
 
 class TrajetController(QObject):
     """
-    Contrôleur pour gérer les actions liées aux trajets.
+    Controller for managing trip-related actions.
     """
     def __init__(self, ajouter_trajet_view, voir_trajets_view):
+        """
+                Initializes the trip controller.
+
+                Args:
+                    ajouter_trajet_view: The view for adding trips.
+                    voir_trajets_view: The view for viewing trips.
+        """
         super().__init__()
         self.ajouter_trajet_view = ajouter_trajet_view
         self.voir_trajets_view = voir_trajets_view
@@ -23,12 +30,18 @@ class TrajetController(QObject):
 
     def calculer_impact_carbone(self, distance_km, facteur_emission=150, passagers=1):
         """
-        Calcule l'impact carbone total et par personne.
+        Calculates the total and per-person carbon impact.
 
-        :param distance_km: Distance en kilomètres (float).
-        :param facteur_emission: Facteur d'émission en gCO₂/km (par défaut 150 gCO₂/km).
-        :param passagers: Nombre de passagers dans le véhicule (int, par défaut 1).
-        :return: Impact carbone total en gCO₂ (float).
+        Args:
+            distance_km (float): Distance in kilometers.
+            facteur_emission (int): Emission factor in gCO₂/km (default is 150 gCO₂/km).
+            passagers (int): Number of passengers in the vehicle (default is 1).
+
+        Returns:
+            float: Total carbon impact in gCO₂.
+
+        Raises:
+            ValueError: If the number of passengers is less than or equal to 0.
         """
         if passagers <= 0:
             raise ValueError("Le nombre de passagers doit être supérieur à 0.")
@@ -38,7 +51,7 @@ class TrajetController(QObject):
 
     def ajouter_trajet(self):
         """
-        Ajoute un nouveau trajet en envoyant une requête au serveur.
+        Adds a new trip by sending a request to the server.
         """
         try:
             # Conversion des champs texte en valeurs numériques

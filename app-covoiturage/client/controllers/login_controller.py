@@ -9,6 +9,12 @@ class LoginController(QObject):
     login_success = pyqtSignal()
 
     def __init__(self, view):
+        """
+                Initializes the login controller.
+
+                Args:
+                    view: The view associated with the login process.
+        """
         super().__init__()
         self.view = view
         self.view.btn_login.clicked.connect(self.login_utilisateur)
@@ -20,11 +26,6 @@ class LoginController(QObject):
         Collects the email and password from the view, sends a login request to the server,
         and processes the server's response.
 
-        Parameters:
-        None
-
-        Returns:
-        None
         """
         data = {
             "email": self.view.input_email.text(),

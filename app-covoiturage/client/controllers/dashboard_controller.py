@@ -3,10 +3,11 @@ from PyQt5.QtWidgets import QApplication
 class DashboardController:
     def __init__(self, dashboard_view, show_view_callback):
         """
-        Initialise le contrôleur du tableau de bord.
+        Initializes the dashboard controller.
 
-        :param dashboard_view: Vue associée au tableau de bord.
-        :param show_view_callback: Fonction pour afficher une autre vue.
+        Args:
+            dashboard_view: The view associated with the dashboard.
+            show_view_callback: Function to display another view.
         """
         self.dashboard_view = dashboard_view
         self.show_view_callback = show_view_callback
@@ -18,20 +19,20 @@ class DashboardController:
 
     def voir_trajets(self):
         """
-        Méthode déclenchée lors du clic sur "Voir les trajets disponibles".
+        Method triggered when "View available trips" is clicked.
         """
         self.show_view_callback("voir_trajets")
 
     def ajouter_trajet(self):
         """
-        Méthode déclenchée lors du clic sur "Ajouter un trajet".
+        Method triggered when "Add a trip" is clicked.
         """
         self.show_view_callback("ajouter_trajet")
 
     def deconnexion(self):
         """
-        Méthode déclenchée lors du clic sur "Se déconnecter".
-        Ferme l'application complètement.
+               Method triggered when "Log out" is clicked.
+               Closes the application completely.
         """
         print("Déconnexion demandée. Fermeture de l'application.")
         QApplication.quit()  # Ferme l'application proprement

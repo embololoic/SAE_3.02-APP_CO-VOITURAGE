@@ -2,6 +2,16 @@ import socket
 import json
 
 def send_request(action, data):
+    """
+        Sends a request to the server and returns the response.
+
+        Args:
+            action (str): The action to be performed.
+            data (dict): The data to be sent with the request.
+
+        Returns:
+            dict: The server's response as a dictionary.
+    """
     client_socket = None
     try:
         # Configuration de la connexion

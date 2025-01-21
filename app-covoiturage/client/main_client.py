@@ -16,6 +16,9 @@ from controllers.gerer_trajet_controller import GererTrajetController
 
 
 def main():
+    """
+    Main function to initialize and run the application.
+    """
     app = QApplication(sys.argv)
 
     # Création des vues
@@ -30,6 +33,9 @@ def main():
 
     # Méthode pour cacher toutes les fenêtres
     def hide_all_views():
+        """
+        Hides all the views.
+        """
         bienvenue_view.hide()
         login_view.hide()
         register_view.hide()
@@ -40,36 +46,60 @@ def main():
 
     # Fonctions pour la navigation entre les vues
     def show_bienvenue():
+        """
+        Shows the welcome view.
+        """
         hide_all_views()
         bienvenue_view.show()
 
     def show_login():
+        """
+        Shows the welcome view.
+        """
         hide_all_views()
         login_view.show()
 
     def show_register():
+        """
+         Shows the registration view.
+        """
         hide_all_views()
         register_view.show()
 
     def show_dashboard():
+        """
+        Shows the dashboard view.
+        """
         hide_all_views()
         dashboard_view.show()
 
     def show_ajouter_trajet():
+        """
+        Shows the add trip view.
+        """
         hide_all_views()
         ajouter_trajet_view.show()
 
     def show_voir_trajets():
+        """
+        Shows the view trips view.
+        """
         hide_all_views()
         trajet_controller.fetch_trajets()
         voir_trajets_view.show()
 
     def show_gerer_trajet():
+        """
+        Shows the manage trip view.
+        """
         hide_all_views()
         gerer_trajet_controller.actualiser_trajets()
         gerer_trajet_view.show()
 
     def logout():
+        """
+        Logs out the user and shows the welcome view.
+        """
         hide_all_views()
         bienvenue_view.show()
 
