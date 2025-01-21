@@ -7,13 +7,16 @@ client
 .. automodule:: client.controllers.dashboard_controller
    :members:
 
+.. automodule:: client.controllers.gerer_trajet_controller
+   :members:
+
 .. automodule:: client.controllers.login_controller
    :members:
 
 .. automodule:: client.controllers.register_controller
    :members:
 
-.. automodule:: client.controllers.trajet_controlleur
+.. automodule:: client.controllers.trajet_controller
    :members:
 
 .. automodule:: client.models.trajet_model
@@ -34,16 +37,13 @@ client
 .. automodule:: client.vues.dashboard_vue
    :members:
 
-.. automodule:: client.vues.deconnexion_vue
+.. automodule:: client.vues.gerer_trajet_vue
    :members:
 
 .. automodule:: client.vues.login_vue
    :members:
 
 .. automodule:: client.vues.register_vue
-   :members:
-
-.. automodule:: client.vues.trajet_vue
    :members:
 
 .. automodule:: client.vues.voir_trajets_vue
