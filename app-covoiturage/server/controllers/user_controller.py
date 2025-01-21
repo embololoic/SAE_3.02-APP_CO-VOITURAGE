@@ -87,7 +87,7 @@ class UserController:
             if user["mot_de_passe"] != data["password"]:
                 return {"status": "error", "message": "Mot de passe incorrect."}
 
-            return {"status": "success", "message": "Connexion réussie.", "user": user}
+            return {"status": "success", "message": "Connexion réussie.", "user_id": user["id"], "user": user}
         except Exception as e:
             return {"status": "error", "message": str(e)}
 

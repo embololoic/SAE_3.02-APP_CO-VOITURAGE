@@ -1,5 +1,7 @@
+
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QPushButton
 from PyQt5.QtCore import pyqtSignal
+from PyQt5.QtWidgets import QApplication
 
 class PageBienvenue(QWidget):
     login_requested = pyqtSignal()
@@ -26,15 +28,18 @@ class PageBienvenue(QWidget):
 
         self.login_button = QPushButton("Se connecter")
         self.register_button = QPushButton("Créer un compte")
+        self.quit_button = QPushButton("Quitter l'application")
 
         layout.addWidget(self.login_button)
         layout.addWidget(self.register_button)
+        layout.addWidget(self.quit_button)
 
         self.setLayout(layout)
 
         # Connecter les boutons aux signaux et fermer la fenêtre
         self.login_button.clicked.connect(self.emit_and_close_login)
         self.register_button.clicked.connect(self.emit_and_close_register)
+        self.quit_button.clicked.connect(QApplication.quit)
 
     def emit_and_close_login(self):
         self.login_requested.emit()

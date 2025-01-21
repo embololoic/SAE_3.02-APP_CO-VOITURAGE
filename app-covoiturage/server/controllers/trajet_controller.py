@@ -5,7 +5,7 @@ from server.models.trajet import TrajetModel
 import logging
 logging.basicConfig(level=logging.INFO)
 
-def add_trajet(data):
+def add_trajet(data,conn):
     """
     Handles the addition of a new trip.
 
@@ -26,15 +26,15 @@ def add_trajet(data):
         logging.info(f"Ajout du trajet avec les données : {data}")
 
         # Création d'une instance de modèle de trajet
-        trajet_model = TrajetModel()
+        trajet_model = TrajetModel(conn)
         trajet_id = trajet_model.create_trajet(data)
         # Enregistrement du succès de la création
-        print(f"Trajet créé avec succès avec l'ID : {trajet_id}")
+        logging.info(f"Trajet créé avec succès avec l'ID : {trajet_id}")
 
         return {"status": "success", "trajet_id": trajet_id}
     except Exception as e:
         # Journaliser l'erreur en cas d'échec
-        print(f"Erreur lors de l'ajout du trajet : {e}")
+        logging.info(f"Erreur lors de l'ajout du trajet : {e}")
 
         return {"status": "error", "message": str(e)}
 

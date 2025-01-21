@@ -33,7 +33,10 @@ class LoginController(QObject):
 
         response = send_request("login", data)
         if response and response.get("status") == "success":
-            QMessageBox.information(self.view, "Succès", "Connexion réussie!")
-            self.login_success.emit()
+            user_data = response.get("user")  # Récupération du dictionnaire 'user'
+            user_id = user_data.get("id")  # Extraction de l'ID utilisateur
+            QMessageBox.information(self.view, "Succès", f"Connexion réussie! ID utilisateur: {user_id}")
+
+            self.login_success.emit()  # Signal de succès pour redirection
         else:
             QMessageBox.critical(self.view, "Erreur", "Erreur lors de la connexion.")

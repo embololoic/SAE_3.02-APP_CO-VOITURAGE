@@ -48,8 +48,13 @@ class RegisterController:
                 print("Réponse reçue :", response)
                 if response:
                     if response.get("status") == "success":
-                        print("Inscription réussie")
-                        QMessageBox.information(self.view, "Succès", "Inscription réussie!")
+                        user_id = response.get("user_id")  # Récupérer l'ID utilisateur
+                        print(f"Inscription réussie avec l'ID utilisateur : {user_id}")
+                        QMessageBox.information(
+                            self.view,
+                            "Succès",
+                            f"Inscription réussie! Votre ID utilisateur est : {user_id}"
+                        )
                         self.reset_form()
                         self.view.btn_inscription.setEnabled(True)  # Réactiver le bouton après succès
                         self.show_dashboard_callback()
