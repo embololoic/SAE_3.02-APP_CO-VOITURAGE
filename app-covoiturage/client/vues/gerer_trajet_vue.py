@@ -17,7 +17,7 @@ class GererTrajetView(QWidget):
         self.trajets_table = QTableWidget()
         self.trajets_table.setColumnCount(6)
         self.trajets_table.setHorizontalHeaderLabels([
-            "ID", "Départ", "Arrivée", "Date/Heure", "Prix (€)", "Places"
+            "trajet_id", "Départ", "Arrivée", "Date/Heure", "Prix (€)", "Places"
         ])
         self.layout.addWidget(self.trajets_table)
 
