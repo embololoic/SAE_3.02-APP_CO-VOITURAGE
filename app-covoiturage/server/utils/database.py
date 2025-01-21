@@ -64,7 +64,7 @@ class BaseDonnees:
             # Table des trajets
             self.cursor.execute('''
             CREATE TABLE IF NOT EXISTS trajets (
-                id INT AUTO_INCREMENT PRIMARY KEY,
+                trajet_id INT AUTO_INCREMENT PRIMARY KEY,
                 conducteur_id INT NOT NULL,
                 depart VARCHAR(255) NOT NULL,
                 arrivee VARCHAR(255) NOT NULL,

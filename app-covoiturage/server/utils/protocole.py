@@ -55,12 +55,12 @@ def handle_client(client_socket, user_controller, db_connection):
         # Close the client socket
         client_socket.close()
 
-def start_server(host="127.0.0.1", port=12345):
+def start_server(host="172.17.21.21", port=12345):
     """
     Start the server and listen for incoming client connections.
 
     Args:
-        host: The server's host address (default: 127.0.0.1).
+        host: The server's host address (default: 172.17.21.21).
         port: The port on which the server listens (default: 12345).
     """
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -75,7 +75,7 @@ def start_server(host="127.0.0.1", port=12345):
 
     try:
         # Connect to the database
-        db_connection = MySQLdb.connect(user='root', passwd='', db='covoiturage', host='localhost')
+        db_connection = MySQLdb.connect(user='rsissako', passwd='Fatou7151@', db='rsissako1', host='192.168.156.221')
         user_controller = UserController(db_connection)
         print("Connexion à la base de données réussie.")
     except MySQLdb.Error as e:

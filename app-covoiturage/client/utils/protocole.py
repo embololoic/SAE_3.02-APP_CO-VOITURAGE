@@ -5,7 +5,7 @@ def send_request(action, data):
     client_socket = None
     try:
         # Configuration de la connexion
-        host = "127.0.0.1"
+        host = "172.17.21.21"
         port = 12345
         client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         client_socket.connect((host, port))
