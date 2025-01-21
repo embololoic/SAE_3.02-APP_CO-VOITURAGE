@@ -3,6 +3,8 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'server')))
 from server.models.trajet import TrajetModel
 import logging
+import datetime
+
 logging.basicConfig(level=logging.INFO)
 
 def add_trajet(data,conn):
@@ -38,20 +40,27 @@ def add_trajet(data,conn):
 
         return {"status": "error", "message": str(e)}
 
-def list_trajets():
+def list_trajets(conn):
     """
-    Retrieves all available trips.
+    Récupère tous les trajets disponibles depuis la base de données.
+
+    Args:
+        conn: Connexion à la base de données.
 
     Returns:
-        dict: A response containing the list of trips or an error.
+        dict: Liste des trajets ou message d'erreur.
     """
     try:
-        # Récupérer tous les trajets à partir du modèle
-        trajet_model = TrajetModel()
+        trajet_model = TrajetModel(conn)
         trajets = trajet_model.get_all_trajets()
+
+        # Convertir les objets datetime en chaînes de caractères
+        for trajet in trajets:
+            if isinstance(trajet["date_heure"], datetime.datetime):
+                trajet["date_heure"] = trajet["date_heure"].strftime('%Y-%m-%d %H:%M:%S')
+
         return {"status": "success", "trajets": trajets}
     except Exception as e:
-        # Retourner une erreur en cas de problème
         return {"status": "error", "message": str(e)}
 
 def search_trajets(filters):

@@ -19,7 +19,7 @@ def handle_client(client_socket, user_controller, db_connection):
     """
     try:
         # Receive data from the client
-        data = client_socket.recv(4096).decode('utf-8')
+        data = client_socket.recv(14096).decode('utf-8')
         request = json.loads(data)
         print(f"Données reçues : {data}")
 

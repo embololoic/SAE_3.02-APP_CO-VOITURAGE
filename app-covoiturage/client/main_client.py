@@ -12,6 +12,7 @@ from vues.gerer_trajet_vue import GererTrajetView
 from controllers.login_controller import LoginController
 from controllers.register_controller import RegisterController
 from controllers.trajet_controller import TrajetController
+from controllers.gerer_trajet_controller import GererTrajetController
 
 
 def main():
@@ -25,6 +26,7 @@ def main():
     ajouter_trajet_view = AjouterTrajetView()
     voir_trajets_view = VoirTrajetsView()
     gerer_trajet_view = GererTrajetView()
+    gerer_trajet_controller = GererTrajetController(gerer_trajet_view)
 
     # Méthode pour cacher toutes les fenêtres
     def hide_all_views():
@@ -64,6 +66,7 @@ def main():
 
     def show_gerer_trajet():
         hide_all_views()
+        gerer_trajet_controller.actualiser_trajets()
         gerer_trajet_view.show()
 
     def logout():
@@ -87,6 +90,7 @@ def main():
     # Connexion des boutons du tableau de bord
     dashboard_view.view_trips_button.clicked.connect(show_voir_trajets)
     dashboard_view.add_trip_button.clicked.connect(show_ajouter_trajet)
+    dashboard_view.gerer_trip_button.clicked.connect(show_gerer_trajet)
     dashboard_view.logout_button.clicked.connect(logout)
 
     # Boutons des vues secondaires

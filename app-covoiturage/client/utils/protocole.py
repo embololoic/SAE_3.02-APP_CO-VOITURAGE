@@ -18,7 +18,7 @@ def send_request(action, data):
         client_socket.send(json.dumps(request).encode('utf-8'))
 
         # Réception de la réponse
-        response = client_socket.recv(4024).decode('utf-8')
+        response = client_socket.recv(14024).decode('utf-8')
         return json.loads(response)
     except Exception as e:
         print(f"Erreur lors de la connexion : {e}")
